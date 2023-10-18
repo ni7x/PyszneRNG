@@ -53,7 +53,7 @@ goToRandomItem = async (items) => {
             await goUpAndDown(items, randomItemNum, i, items.length);
         }
         items[randomItemNum >= 3 ? randomItemNum - 3 : 0].scrollIntoView({ "behavior": "smooth" });
-        items[randomItemNum].style.border = "4px solid red";
+        items[randomItemNum].style.border = "4px dashed #ff7400";
     }
 }
 
