@@ -3,10 +3,24 @@ chrome.action.onClicked.addListener(execScript);
 
 async function execScript() {
   const tabId = await getTabId();
-  chrome.scripting.executeScript({
-    target: {tabId: tabId},
-    files: ['execute.js']
-  })
+  const tab = await chrome.tabs.get(tabId);
+  const url = tab.url;
+
+  const menu =  /https:\/\/www\.pyszne\.pl\/.*\/?menu/  ;
+
+  const restaurants =   /https:\/\/www\.pyszne\.pl\/.+\/.+\//;
+  if (menu.test(url)) {
+    chrome.scripting.executeScript({
+      target: {tabId: tabId},
+      files: ['randomDish.js']
+    });
+  } else if(restaurants.test(url)){
+    chrome.scripting.executeScript({
+        target: {tabId: tabId},
+        files: ['randomRestaurant.js']
+      })
+  }
+ 
 }
 
 async function getTabId() {
