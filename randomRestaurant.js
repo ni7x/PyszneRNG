@@ -81,7 +81,10 @@ getRestaurantList = () => {
 (async () => {
     await scrollToBottom(0);
     window.scrollTo({top: 0,behavior: "smooth"});
+    
     getRestaurantList();
     await goToRandomItem(openRestaurants);
+    
 })();
 
+//dziala giga wolno ale to jest glownie spo=wododwane tym ze musze zaladowac wszystkie obiekty z listy restauracji,
