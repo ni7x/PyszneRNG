@@ -55,6 +55,9 @@ goToRandomItem = async (items) => {
         }
         items[randomItemNum >= 3 ? randomItemNum - 3 : 0].scrollIntoView({ "behavior": "smooth" });
         items[randomItemNum].style.border = "4px dashed #ff7400";
+       
+        const firstAnchor =  items[randomItemNum].querySelector('a');
+        firstAnchor.target = '_blank'; //sprawiam ze klikniecie elementu otworzy strone w nowym oknie co laduje sie z 10 x szybciej niz klikniecie linku i przejscie przez wage reacta pysznepl + wage mojego rozszerzenia
     }
 }
 
@@ -87,4 +90,4 @@ getRestaurantList = () => {
     
 })();
 
-//dziala giga wolno ale to jest glownie spo=wododwane tym ze musze zaladowac wszystkie obiekty z listy restauracji,
+//dziala giga wolno ale to jest glownie spo=wododwane tym ze musze zaladowac wszystkie obiekty z listy restauracji,wszyskie obrazki itd
