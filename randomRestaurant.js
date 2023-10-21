@@ -75,19 +75,47 @@ getRestaurantList = () => {
                     openRestaurants.push(name);
                     name.style.border = "";
                 }
+            }else{
+                break;
             }
         }
+        
     }
 }
 
 
 (async () => {
+    /*const inputElement = document.getElementById("switch_0"); //only open
+    if (inputElement && inputElement.getAttribute("aria-checked") === "false") {
+        inputElement.addEventListener("click", () => {
+          }, { once: true });
+          inputElement.click();
+    }*/
     await scrollToBottom(0);
     window.scrollTo({top: 0,behavior: "smooth"});
+    /*const inputElement = document.getElementById("switch_0");
+    if (inputElement) {
+        const restaurantCount = document.querySelector("[data-qa='sidebar-result-counter']");
+        if(inputElement.getAttribute("aria-checked") === "true"){
+            if(restaurantCount == parseInt(localStorage.getItem('openRestaurantsCount'))){
+                openRestaurants = 
+            }
+        }else{
+
+        }
+    }
+
     
+    localStorage.setItem('openRestaurants', JSON.stringify(openRestaurants));
+    localStorage.setItem('openRestaurantsCount', openRestaurants.length);
+    localStorage.setItem('closedRestaurantsCount', closedRestaurantsCount);*/
     getRestaurantList();
     await goToRandomItem(openRestaurants);
     
 })();
 
 //dziala giga wolno ale to jest glownie spo=wododwane tym ze musze zaladowac wszystkie obiekty z listy restauracji,wszyskie obrazki itd
+//moge zroibc catche
+//moge isc tylko do "zamknietych", a nie do konca
+//moze batch
+//dodac testy
